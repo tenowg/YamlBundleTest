@@ -35,6 +35,10 @@
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
 		</repository>
+		<repository>
+			<id>demgel-repo</id>
+			<url>http://repository-tenowg.forge.cloudbees.com/snapshot</url>
+		</repository>
 	</repositories>
     
 	<dependencies>
