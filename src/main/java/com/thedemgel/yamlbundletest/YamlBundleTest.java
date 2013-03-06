@@ -5,12 +5,10 @@ import com.thedemgel.yamlbundletest.configuration.YamlBundleTestConfiguration;
 import com.thedemgel.yamlresourcebundle.YamlResourceBundle;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import org.spout.api.Spout;
 import org.spout.api.command.CommandRegistrationsFactory;
 import org.spout.api.command.RootCommand;
 import org.spout.api.command.annotated.AnnotatedCommandRegistrationFactory;
 import org.spout.api.command.annotated.SimpleAnnotatedCommandExecutorFactory;
-import org.spout.api.command.annotated.SimpleInjector;
 import org.spout.api.plugin.CommonPlugin;
 
 /**
@@ -33,7 +31,7 @@ public class YamlBundleTest extends CommonPlugin {
 	@Override
 	public void onEnable() {
 		//Commands
-		CommandRegistrationsFactory<Class<?>> commandRegFactory = new AnnotatedCommandRegistrationFactory(new SimpleInjector(this), new SimpleAnnotatedCommandExecutorFactory());
+		CommandRegistrationsFactory<Class<?>> commandRegFactory = new AnnotatedCommandRegistrationFactory(getEngine(), new SimpleAnnotatedCommandExecutorFactory());
 		RootCommand root = getEngine().getRootCommand();
 		root.addSubCommands(this, PlayerCommands.class, commandRegFactory);
 
@@ -42,12 +40,12 @@ public class YamlBundleTest extends CommonPlugin {
 		YamlResourceBundle yrb = new YamlResourceBundle();
 		rb = yrb.getBundle("lang", Locale.forLanguageTag(YamlBundleTestConfiguration.LANG_TEST.getString()), getDataFolder());
 		
-		Spout.getLogger().info("enabled.");
+		getLogger().info("enabled.");
 	}
 
 	@Override
 	public void onDisable() {
-		Spout.getLogger().info("disabled.");
+		getLogger().info("disabled.");
 	}
 	
 	private static void setInstance(YamlBundleTest plugin) {
