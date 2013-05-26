@@ -80,6 +80,33 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.2</version>
+        <executions>
+          <execution>
+            <id>enforce-versions</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireJavaVersion>
+                  <version>1.7</version>
+                </requireJavaVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
   <repositories>
@@ -89,6 +116,10 @@
       </snapshots>
       <id>spout-repo</id>
       <url>http://repo.spout.org</url>
+    </repository>
+    <repository>
+      <id>demgel-repo</id>
+      <url>http://repository-tenowg.forge.cloudbees.com/snapshot</url>
     </repository>
   </repositories>
   <dependencies>

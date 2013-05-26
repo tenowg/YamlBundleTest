@@ -3,6 +3,7 @@ package com.thedemgel.yamlbundletest;
 import com.thedemgel.yamlbundletest.commands.PlayerCommands;
 import com.thedemgel.yamlbundletest.configuration.YamlBundleTestConfiguration;
 import com.thedemgel.yamlresourcebundle.YamlResourceBundle;
+import java.io.File;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import org.spout.api.command.CommandRegistrationsFactory;
@@ -37,9 +38,9 @@ public class YamlBundleTest extends CommonPlugin {
 
 		getEngine().getEventManager().registerEvents(new EListener(this), this);
 		
-		YamlResourceBundle yrb = new YamlResourceBundle();
-		rb = yrb.getBundle("lang", Locale.forLanguageTag(YamlBundleTestConfiguration.LANG_TEST.getString()), getDataFolder());
-		
+		//YamlResourceBundle yrb = new YamlResourceBundle();
+		//rb = YamlResourceBundle.getBundle("lang.lang", Locale.forLanguageTag(YamlBundleTestConfiguration.LANG_TEST.getString()), getDataFolder());
+		rb = YamlResourceBundle.getBundle("lang.lang", Locale.forLanguageTag(YamlBundleTestConfiguration.LANG_TEST.getString()), new YamlResourceBundle.Control());
 		getLogger().info("enabled.");
 	}
 
