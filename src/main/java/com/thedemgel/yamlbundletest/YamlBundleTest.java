@@ -3,13 +3,9 @@ package com.thedemgel.yamlbundletest;
 import com.thedemgel.yamlbundletest.commands.PlayerCommands;
 import com.thedemgel.yamlbundletest.configuration.YamlBundleTestConfiguration;
 import com.thedemgel.yamlresourcebundle.YamlResourceBundle;
-import java.io.File;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import org.spout.api.command.CommandRegistrationsFactory;
-import org.spout.api.command.RootCommand;
-import org.spout.api.command.annotated.AnnotatedCommandRegistrationFactory;
-import org.spout.api.command.annotated.SimpleAnnotatedCommandExecutorFactory;
+import org.spout.api.command.annotated.AnnotatedCommandExecutorFactory;
 import org.spout.api.plugin.CommonPlugin;
 
 /**
@@ -32,9 +28,7 @@ public class YamlBundleTest extends CommonPlugin {
 	@Override
 	public void onEnable() {
 		//Commands
-		CommandRegistrationsFactory<Class<?>> commandRegFactory = new AnnotatedCommandRegistrationFactory(getEngine(), new SimpleAnnotatedCommandExecutorFactory());
-		RootCommand root = getEngine().getRootCommand();
-		root.addSubCommands(this, PlayerCommands.class, commandRegFactory);
+		AnnotatedCommandExecutorFactory.create(new PlayerCommands(this));
 
 		getEngine().getEventManager().registerEvents(new EListener(this), this);
 		
