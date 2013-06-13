@@ -6,13 +6,13 @@ import com.thedemgel.yamlresourcebundle.YamlResourceBundle;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import org.spout.api.command.annotated.AnnotatedCommandExecutorFactory;
-import org.spout.api.plugin.CommonPlugin;
+import org.spout.api.plugin.Plugin;
 
 /**
  * If you have found this useful, please let me know.
  * @author Craig <tenowg at thedemgel.com>
  */
-public class YamlBundleTest extends CommonPlugin {
+public class YamlBundleTest extends Plugin {
 	private static YamlBundleTest instance;
 	private YamlBundleTestConfiguration config;
 	private ResourceBundle rb;
