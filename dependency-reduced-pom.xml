@@ -125,8 +125,8 @@
   <dependencies>
     <dependency>
       <groupId>org.spout</groupId>
-      <artifactId>spoutapi</artifactId>
-      <version>dev-SNAPSHOT</version>
+      <artifactId>spout-api</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
@@ -134,7 +134,7 @@
     <buildNumber>0</buildNumber>
     <mainClass>com.thedemgel.yamlbundletest.YamlBundleTest</mainClass>
     <currentYear>2013</currentYear>
-    <spoutVersion>dev-SNAPSHOT</spoutVersion>
+    <spoutVersion>1.0.0-SNAPSHOT</spoutVersion>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
